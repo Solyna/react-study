@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Index from './Pages/Index';
 import List from './Pages/List';
+import Home from './Pages/Home';
 
 /* 无状态组件 */
 function AppRouter() {
@@ -16,6 +17,7 @@ function AppRouter() {
         <Route path="/" exact component={Index} />
         {/* 动态传值-1.设置规则：设置以:开始，紧跟着你传递的key名称 */}
         <Route path="/list/:id" component={List} />
+        <Route path="/home/" component={Home} />
     </Router>
   );
 }

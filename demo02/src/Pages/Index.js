@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 
 class Index extends Component {
     constructor(props){
@@ -11,10 +11,14 @@ class Index extends Component {
                 {uid:789,title:'技术胖的个人博客-3'},
             ] 
         }
+        /* 编程式重定向 */
+        this.props.history.push("/home/")
     }
     render() { 
         return ( 
-            <div>    
+            <div>  
+                {/* 标签式重定向，不适合复杂的 */}  
+                {/* <Redirect to='/home'/> */}
                 <h2>JSPang.com</h2> 
                 <ul>
                     {
