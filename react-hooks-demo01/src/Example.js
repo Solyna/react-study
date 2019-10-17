@@ -3,6 +3,7 @@ import HooksExample from './HooksExample';
 import HooksExample2 from './HooksExample2';
 import HooksExample3 from './HooksExample3';
 import HooksExample4 from './HooksExample4';
+import UseReducerDemo from './UseReducerDemo';
 
 class Example extends Component {
     constructor(props) {
@@ -23,6 +24,8 @@ class Example extends Component {
                 <HooksExample/>
                 <p>HooksExample4</p><hr/>
                 <HooksExample4/>
+                <p>UseReducerDemo</p><hr/>
+                <UseReducerDemo/>
             </div>
          );
     }
