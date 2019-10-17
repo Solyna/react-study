@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HooksExample from './HooksExample';
 import HooksExample2 from './HooksExample2';
 import HooksExample3 from './HooksExample3';
+import HooksExample4 from './HooksExample4';
 
 class Example extends Component {
     constructor(props) {
@@ -14,9 +15,14 @@ class Example extends Component {
                 <p>原始写法：</p>
                 <p>You clicked {this.state.count}</p>
                 <button onClick={this.addCount.bind(this)}>Click me</button>
+                <p>HooksExample2</p><hr/>
                 <HooksExample2/>
+                <p>HooksExample3</p><hr/>
                 <HooksExample3/>
+                <p>HooksExample</p><hr/>
                 <HooksExample/>
+                <p>HooksExample4</p><hr/>
+                <HooksExample4/>
             </div>
          );
     }
