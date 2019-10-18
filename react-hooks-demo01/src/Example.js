@@ -5,6 +5,7 @@ import HooksExample3 from './HooksExample3';
 import HooksExample4 from './HooksExample4';
 import UseReducerDemo from './UseReducerDemo';
 import Example6 from './useReducer/Example6';
+import Example7 from './Example7';
 
 class Example extends Component {
     constructor(props) {
@@ -13,8 +14,8 @@ class Example extends Component {
     }
     render() { 
         return ( 
-            <div>
-
+            <div>   
+                <Example7/>
                 <p>原始写法：</p>
                 <p>You clicked {this.state.count}</p>
                 <button onClick={this.addCount.bind(this)}>Click me</button>
