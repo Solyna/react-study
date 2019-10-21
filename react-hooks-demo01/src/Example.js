@@ -6,6 +6,7 @@ import HooksExample4 from './HooksExample4';
 import UseReducerDemo from './UseReducerDemo';
 import Example6 from './useReducer/Example6';
 import Example7 from './Example7';
+import Example9 from './Example9';
 
 class Example extends Component {
     constructor(props) {
@@ -15,6 +16,9 @@ class Example extends Component {
     render() { 
         return ( 
             <div>   
+                {/* 自定义hooks函数 */}
+                <Example9/>
+                {/* useMemo解决性能问题 */}
                 <Example7/>
                 <p>原始写法：</p>
                 <p>You clicked {this.state.count}</p>
