@@ -5,17 +5,21 @@ import Link from 'next/link'
 import Router from 'next/router'
 
 const Home=()=>{
-  function gotoA(){
-    Router.push('/routerA')
+  function gotoB(){
+   /*  Router.push('/routerB?name=编程式传参参数B') */
+   Router.push({
+     pathname:'/routerB',
+     query:{name:'参数BBBBB'}
+   })
   }
 
   return(
     <>
       <div>我是首页</div>
-      <div><Link href="/routerA"><a>去RouterA页面</a></Link></div>
-      <div><Link href="/routerB"><a>去RouterB页面</a></Link></div>
+      <div><Link href={{pathname:'/routerA',query:{name:'参数a'}}}><a>去RouterA页面</a></Link></div>
+      <div><Link href="/routerB?name=参数b"><a>去RouterB页面</a></Link></div>
       <div>
-        <button onClick={gotoA}>编程式导航跳转到A页面</button>
+        <button onClick={gotoB}>编程式导航跳转到A页面</button>
       </div>
     </>
   )
