@@ -1,0 +1,4 @@
+/* 监控页 */
+export default ()=>{
+    return <h1>Monitor Page</h1>
+}
