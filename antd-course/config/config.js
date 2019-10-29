@@ -1,8 +1,9 @@
 export default {
-    // singular:true,
+    singular:true,
     plugins:[
         ['umi-plugin-react',{
-            antd:true
+            antd:true,
+            dva:true
         }]
     ],
     routes:[{
@@ -11,6 +12,7 @@ export default {
         routes:[
             {path:'/',component:'./HelloWorld'},
             {path:'/helloworld',component:'./HelloWorld'},
+            {path:'/puzzlecards',component:'./puzzlecards'},
             {
                 path:'/dashboard',
                 routes:[
