@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'antd';
 import {connect} from 'dva';
 
-class List extends React.Component{
+class Tables extends React.Component{
     columns=[
         {
             title: '名称',
@@ -60,4 +60,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps)(Tables);
