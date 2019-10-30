@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'antd';
+import { Card } from 'antd';
 import { connect } from 'dva';
 
 const namespace = 'puzzlecards';
@@ -10,14 +10,15 @@ const mapStateToProps = (state) => {
         cardList
     }
 }
+/* 通过 mapDispatchToProps 给页面注入方法 onDidMount
+页面在 mount 完毕后调用该方法。它发送一个 puzzlecards/queryInitCards 的 action，
+这个请求被 puzzlecards 中的 queryInitCards 这个 effects 所处理。 */
 const mapDispatchToProps = (dispatch) =>{
     return {
-        onClickAdd:(newCard)=>{
-            const action ={
-                type:`${namespace}/addNewCard`,
-                payload:newCard
-            };
-            dispatch(action)
+        onDidMount:()=>{
+            dispatch({
+                type:`${namespace}/queryInitCards`,
+            })
         }
     }
 }
@@ -25,25 +26,24 @@ const mapDispatchToProps = (dispatch) =>{
 @connect(mapStateToProps,mapDispatchToProps)
 
 export default class PuzzleCardsPage extends Component {
+    componentDidMount(){
+        this.props.onDidMount();
+    }
     render() { 
         return ( 
             <div>
-                {this.props.cardList.map(card=>{
+                {
+                    this.props.cardList.map(card=>{
                     return(
                         <Card key={card.id}>
-                            <div>Q:{card.setup}</div>
+                            <div>Q:{card.title}</div>
                             <div>
-                                <strong>A:{card.punchline}</strong>
+                                <strong>A:{card.body}</strong>
                             </div>
                         </Card>
                     )
-                })}
-                <div>
-                    <Button onClick={()=>this.props.onClickAdd({
-                      setup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                      punchline: 'here we use dva',  
-                    })}>添加卡片</Button>
-                </div>
+                })
+                }
 
             </div>
          );

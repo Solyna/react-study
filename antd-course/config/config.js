@@ -22,7 +22,14 @@ export default {
                 ]
             }
         ]
-    }]
+    }],
+    proxy: {
+        '/dev':{
+            target:'http://jsonplaceholder.typicode.com',
+            changeOrigin: true,
+            pathRewrite: { "^/dev": "" } // 把 dev 重写掉
+        }
+    }
 };
 /**
      * component: 表示page下的文件名， 是一个字符串，它是相对于 page 目录的相对路径。
@@ -48,4 +55,14 @@ export default {
      * 3.component 目录----大小写要求
      *             文件----大小写忽略
      * 
+     */
+
+     /*
+     配置代理：
+     去往本地服务器 localhost:8000 的 ajax 调用中，如果是以 /dev 开头的，
+     那么就转发到远端的 https://08ad1pao69.execute-api.us-east-1.amazonaws.com 服务器当中，
+     /dev 也会保留在转发地址中。
+     比如：
+    /dev/random_joke 就会被转发到 https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke。
+    所以 end point URI 也需更改为：const endPointURI = '/dev/random_joke';
      */
