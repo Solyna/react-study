@@ -20,6 +20,14 @@ export default {
                     {path:'/dashboard/monitor',component:'../Dashboard/Monitor'},
                     {path:'/dashboard/workplace',component:'../Dashboard/Workplace'}
                 ]
+            },
+            {
+                path:'/complex',
+                routes:[
+                    {path:'/complex/table',component:'../Complex/Table'},
+                    {path:'/complex/form',component:'../Complex/Form'},
+                    {path:'/complex/chart',component:'../Complex/Chart'}
+                ]
             }
         ]
     }],
