@@ -28,6 +28,12 @@ export default {
                     {path:'/complex/form',component:'../Complex/Form'},
                     {path:'/complex/chart',component:'../Complex/Chart'}
                 ]
+            },
+            {
+                path:'/advanced',
+                routes:[
+                    {path:'/advanced/typescript',component:'../Advanced/Typescript'}
+                ]
             }
         ]
     }],

@@ -36,6 +36,11 @@ class BasicLayout extends Component{
                                 <Menu.Item key="7"><Link to="/complex/chart">图表</Link></Menu.Item>
 
                         </SubMenu>
+                        <SubMenu
+                            key="sub3"
+                            title={<span><Icon type="dashboard" /><span>进阶功能</span></span>}>
+                                <Menu.Item key="8"><Link to="/advanced/typescript">使用typeScript</Link></Menu.Item>
+                        </SubMenu>
                     </Menu> 
                 </Sider>
                 <Layout>
