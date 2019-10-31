@@ -17,8 +17,15 @@ const listData = [{
     name : 'antd-pro',
     desc : '一个服务于企业级产品的设计体系',
     url  : 'https://ant.design/index-cn'
-  }
-  ];
+  }];
+
+const chartData = [
+    { genre: 'Sports', sold: 275 },
+    { genre: 'Strategy', sold: 1150 },
+    { genre: 'Action', sold: 120 },
+    { genre: 'Shooter', sold: 350 },
+    { genre: 'Other', sold: 150 },
+]
 
 const delay = (millisecond) => {
     return new Promise((resolve) => {
@@ -28,9 +35,12 @@ const delay = (millisecond) => {
 
 export default {
     namespace:'cards',
+
     state:{
         cardsList:[],
+        statistic: {},
     },
+
     effects:{
         /* 代表事件的Action对象，由于函数体不需要Action内容，所有使用`_`占位符代替Action对象了。 */
         *queryList({ _ },{ call,put }){
@@ -54,15 +64,36 @@ export default {
                 type:'saveList',
                 payload:{cardsList:cardsList.concat(arr)}
             })
+        },
+        *getStatistic({ payload }, { call, put }) {
+            // const rsp = yield call(cardsService.getStatistic, payload);
+            yield put({
+              type: 'saveStatistic',
+              payload: {
+                id: payload,
+                data: chartData,
+              },
+            });
+            // return rsp;
         }
 
     },
+
     reducers:{
         saveList(state,{payload:{cardsList}}){
             return{
                 ...state,
                 cardsList
             }
-        }
+        },
+        saveStatistic(state, { payload: { id, data } }) {
+            return {
+              ...state,
+              statistic: {
+                ...state.statistic,
+                [id]: data,
+              },
+            }
+        },
     }
 }
