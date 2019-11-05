@@ -22,7 +22,7 @@ class Message extends React.Component<{
             count: count + 1
         })
     }
-    public render() {
+    public render() { 
         return (
             <div>
                 {/* 通过<>的第一个参数来指定props的类型。通过第二个参数来指定state的类型。 */}
